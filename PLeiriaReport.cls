@@ -257,4 +257,4 @@
 \sisetup{per-mode=symbol}
 
 % Configure step autoref
-\renewcommand{\itemautorefname}{step}
+\renewcommand{\itemautorefname}{Step}
