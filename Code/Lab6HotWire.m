@@ -10,7 +10,7 @@ hotWireV = [];
 % Loop through files
 for fileIndex = 20:4:60
     % Generate filename
-    filename = sprintf('%d.txt', fileIndex);
+    filename = sprintf('Data/%d.txt', fileIndex);
 
     % Read the file
     data = readtable(filename, 'HeaderLines', 5, 'Delimiter', '\t', 'Format', '%s%f%f', 'ReadVariableNames', false);
