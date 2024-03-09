@@ -57,9 +57,9 @@ curveFit = P3(1) * x.^4 + P3(2) * x.^3 + P3(3) * x.^2 + P3(4) * x + P3(5);
 fprintf('4th order polynomial curve fitting formula: \n   %.4fx^4 + %.4fx^3 + %.4fx^2 + %.4fx + %.4f \n\n', P3(1), P3(2), P3(3), P3(4), P3(5))
 
 %Plot Hot Wire Voltage vs. Air speed
-plot(hotWireV, v_pt, 'o')
+scatter(hotWireV, v_pt, 64, "filled");
 hold on
-plot(x, curveFit)
+plot(x, curveFit, "LineWidth", 2);
 fontname("Times New Roman");
 fontsize(12, "points");
 title_str = "Velocity vs. Voltage";
