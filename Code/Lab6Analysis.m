@@ -14,7 +14,7 @@ chord = 0.101; % [m] Chord of airfoil
 d_taps = 0.002; % [m] Cistance between taps
 
 %% Part 1 Airfoil Wake 
-aoa = [0 4 6 8 10 12];
+aoa = [0 4 6 8 10 12 14 16];
 n_aoa = length(aoa);
 wake_files = dir(data_dir + '*deg.csv');
 % Columns containing pressure values from raw data
@@ -37,11 +37,10 @@ for a = 1:n_aoa % Iterate through files
     U_inf(a) = sqrt(2 * q / rho_air ); % Freestream velocity
     for i = 1 : width(temp) % Iterate through data
         if ismember(i,range) % Take columns with pressure data
-            C_p(a, count) = (temp(i)-PE) / q ; % Cp at each tap
             % Velocity at each tap
-            U_p(a,count) = sqrt((temp(i) - PE) * 2 / rho_air);
+            U_p(a,count) = sqrt(abs((temp(i) - PE)) * 2 / rho_air);
+            C_p(a, count) = (temp(i)-PE) / q ; % Cp at each tap
             count = count + 1;
-
         end 
     end
     % C_P Graphs
@@ -49,12 +48,12 @@ for a = 1:n_aoa % Iterate through files
     plot(position, C_p(a,:))
     fontname("Times New Roman");
     fontsize(12, "points");
-    title_str = "C_p Distribution of Airfoil Wake at " + aoa(a) +"^{\circ} AOA";
+    title_str = "C_p Distribution of Airfoil Wake at " + aoa(a) +"° AOA";
     title(title_str);
     xlabel("Position");
     ylabel("C_p");
     grid on;
-    % saveas(gcf, figure_dir + title_str + ".svg");
+    saveas(gcf, figure_dir + title_str + ".svg");
 
 % midpoint rule for approx integral
     for i = 1:n_taps-1
@@ -74,3 +73,4 @@ plot(aoa, C_D)
     xlabel("Angle of Attack [^{\circ}]");
     ylabel("C_D");
     grid on;
+    saveas(gcf, figure_dir + title_str + ".svg");
