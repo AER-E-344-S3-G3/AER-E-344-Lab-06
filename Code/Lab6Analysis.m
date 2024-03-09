@@ -39,6 +39,9 @@ for a = 1:n_aoa % Iterate through files
         if ismember(i,range) % Take columns with pressure data
             % Velocity at each tap
             U_p(a,count) = sqrt(abs((temp(i) - PE)) * 2 / rho_air);
+            if temp(i) - PE < 0
+                U_p(a, count) = -U_p(a, count);
+            end
             C_p(a, count) = (temp(i)-PE) / q ; % Cp at each tap
             count = count + 1;
         end 
@@ -51,7 +54,7 @@ for a = 1:n_aoa % Iterate through files
     title_str = "C_p Distribution of Airfoil Wake at " + aoa(a) +"° AOA";
     title(title_str);
     xlabel("Position");
-    ylabel("C_p");
+    ylabel("C_p [ ]");
     grid on;
     saveas(gcf, figure_dir + title_str + ".svg");
 
@@ -70,7 +73,7 @@ plot(aoa, C_D)
     fontsize(12, "points");
     title_str = "C_D Distribution of Airfoil vs. AOA";
     title(title_str);
-    xlabel("Angle of Attack [^{\circ}]");
-    ylabel("C_D");
+    xlabel("Angle of Attack [°]");
+    ylabel("C_D [ ]");
     grid on;
     saveas(gcf, figure_dir + title_str + ".svg");
