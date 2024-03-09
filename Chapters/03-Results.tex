@@ -1,19 +1,27 @@
 \chapter{Results}
 \label{cp:results}
 
-
- In \autoref{fig:C_D Distribution of Airfoil vs. AOA.svg} shows the estimated Coefficient of Drag vs the \qtyrange{0}{16}{\degree} \acrshort{aoa} that is based on the wake flow measurements that we took with the pressure rake behind the Airfoil. 
+\autoref{fig:C_D Distribution of Airfoil vs. AOA.svg} shows the estimated Coefficient of Drag, \gls{C_d}, over the \qtyrange{0}{16}{\degree} \acrshort{aoa} we measured with the pressure rake.
 
 \begin{figure}[htpb]
     \centering
     \includesvg[width=0.75\linewidth]{Figures/C_D Distribution of Airfoil vs. AOA.svg}
-    \caption[Plot of the \gls{C_D} in relationship to the \acrshort{aoa}.]{Plot of the \gls{C_D} in relationship to the \acrshort{aoa}.}
+    \caption[Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.]{Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.}
     \label{fig:C_D Distribution of Airfoil vs. AOA.svg}
 \end{figure}
+
+\autoref{fig: Velocity vs. Voltage.svg} shows the hot wire calibration curve we calculated based on our calibration data. The fourth order polynomial we calculated is shown in \autoref{eq:calibration_curve}
+
+\begin{equation} \label{eq:calibration_curve}
+    v = -4982.7570V^4 + 24021.8937V^3 + -43230.9413V^2 + 34446.6867V + -10248.1714
+\end{equation}
+
+\noindent where \gls{v} is the air speed and \gls{V} is the voltage of the hot wire anemometer.
 
 \begin{figure}[htpb]
     \centering
     \includesvg[width=0.75\linewidth]{Figures/Velocity vs. Voltage.svg}
     \caption[Plot of the Velocity of the air vs the voltage of the  Hot Wire Anemometer]{Plot of the Velocity of the air vs the voltage of the  Hot Wire Anemometer}
     \label{fig: Velocity vs. Voltage.svg}
+    \vspace*{4in}
 \end{figure}
