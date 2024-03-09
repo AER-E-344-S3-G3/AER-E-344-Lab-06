@@ -62,8 +62,8 @@ hold on
 plot(x, curveFit)
 title_str = "Velocity vs. Voltage";
 title(title_str);
-xlabel('Hot Wire Voltage [V]')
-ylabel('Air speed [m/s]')
+xlabel('hot wire voltage [V]')
+ylabel('air speed [m/s]')
 legend('Experimental data', '4th order polynomial curve fitting', 'Location', 'SouthEast')
 grid
 saveas(gcf, figure_dir + title_str + ".svg");
