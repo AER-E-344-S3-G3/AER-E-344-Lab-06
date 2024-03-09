@@ -25,8 +25,8 @@ A hot wire anemometer and pitot tube are positioned in the test chamber of a sma
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.75\linewidth]{Figures/IMG_3199.jpeg}
-    \caption[Image of the Hot Wire .]{Image of the small open Circuit wind tunnel.}
-    \label{fig: OpenCircutWindTunnel}
+    \caption[Image of the Hot Wire Anemometer inside of open Circuit wind tunnel.]{Image of the Hot Wire Anemometer inside of open Circuit wind tunnel.}
+    \label{fig: HotWireAndPitot}
 \end{figure}
 
 \section{Procedure}\label{sec:procedures}
@@ -76,7 +76,8 @@ The coefficient of drag is found by looking at the fluid momentum change as drag
 \begin{equation}\label{eq:C_D}
     C_D = \frac{2}{C} \int [\frac{U_y}{U_\infty}(1-\frac{U_y}{U_\infty})]dy
 \end{equation}
-The coefficient of drag can be approximated with the data collected from the pressure rake using a Midpoint Riemann Sum.
+The coefficient of drag can be approximated with the data collected from the pressure rake using a Midpoint Riemann Sum of the pressure taps, where $C$ is the chord, $d$ is the distance between each pressure tap.
 \begin{equation}
     C_D = \frac{2}{C} \sum_{i=1}^{45} d\frac{[\frac{U_i}{U_\infty}(1-\frac{U_i}{U_\infty})] + [\frac{U_{i+1}}{U_\infty}(1-\frac{U_{i+1}}{U_\infty})]}{2}
 \end{equation}
+
