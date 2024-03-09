@@ -13,16 +13,22 @@ An airfoil is positioned in the wind tunnel test chamber as seen in \autoref{fig
 \end{figure}
 
 \subsection{Hot Wire Anemometer Calibration}
-A hot wire anemometer and pitot tube are positioned in the test chamber of a small wind tunnel. The pitot tube is connected to a Mensor manometer. Both the anemometer and Mensor manometer are connected to a computer with data acquisition software to collect measurements and store the data in \verb|.txt| files. 
+A hot wire anemometer and pitot tube are positioned in the test chamber of a small wind tunnel as seen in \autoref{fig: OpenCircutWindTunnel}. The pitot tube is connected to a Mensor manometer. Both the anemometer and Mensor manometer are connected to a computer with data acquisition software to collect measurements and store the data in \verb|.txt| files. 
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.75\linewidth]{Figures/IMG_3192.jpeg}
     \caption[Image of the small open Circuit wind tunnel.]{Image of the small open Circuit wind tunnel.}
-    \label{fig: AirFoilAndPressureRake}
+    \label{fig: OpenCircutWindTunnel}
 \end{figure}
 
-\newpage
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figures/IMG_3199.jpeg}
+    \caption[Image of the Hot Wire .]{Image of the small open Circuit wind tunnel.}
+    \label{fig: OpenCircutWindTunnel}
+\end{figure}
+
 \section{Procedure}\label{sec:procedures}
 \subsection{Airfoil Wake Measurements}
 \begin{enumerate}
@@ -38,14 +44,13 @@ A hot wire anemometer and pitot tube are positioned in the test chamber of a sma
 \subsection{Hot Wire Anemometer Calibration}
 
 \begin{enumerate}
-\item Set the velocity to 0. \item Record data, including both the voltage data given by the computer and the presure data obtained from the mensor manometer.
-\item Set the wind tunnel to 5 Hz and record data. 
-\item Repeat step 2-3, from 5 Hz to 35 Hz, in increments of 5 Hz. 
-\item Approximate the data to a 4th degree function. 
-\item Save the data to a flash drive for post-lab analysis.
+    \item Set the velocity to 0. \item Record data, including both the voltage data given by the computer and the presure data obtained from the mensor manometer.
+    \item Set the wind tunnel to 5 Hz and record data. 
+    \item Repeat step 2-3, from 5 Hz to 35 Hz, in increments of 5 Hz. 
+    \item Approximate the data to a 4th degree function. 
+    \item Save the data to a flash drive for post-lab analysis.
 \end{enumerate}
 
-\newpage
 \section{Derivations}
 The coefficient of pressure is found by normalizing the dynamic pressure measured by the pressure taps with the free-stream dynamic pressure. The difference between the inlet and outlet pressure of the contraction section, $P_A$ and $P_E$ respectively, along with the wind tunnel calibration constant, K, determines the free-stream dynamic pressure denoted as $q_\infty$.
 \begin{equation}\label{eq:q_inf}
@@ -67,8 +72,11 @@ The free-stream flow velocity is found similarly:
 \begin{equation}\label{eq:U_inf}
     U_\infty = \sqrt{\frac{2 q_\infty}{\rho}} = \sqrt{\frac{2 K (P_A - P_E)}{\rho}}
 \end{equation}
-The coefficient of drag is found by looking at the fluid momentum change as drag resulting in \autoref{eq:C_D}, where $C$ is the chord of the airfoil and $y$ is the area downstream of the airfoil.
+The coefficient of drag is found by looking at the fluid momentum change as drag resulting in \autoref{eq:C_D}, where $C$ is the chord of the airfoil and $y$ is the area downstream of the airfoil \citep{lab6-manual}.
 \begin{equation}\label{eq:C_D}
     C_D = \frac{2}{C} \int [\frac{U_y}{U_\infty}(1-\frac{U_y}{U_\infty})]dy
 \end{equation}
-Using 
+The coefficient of drag can be approximated with the data collected from the pressure rake using a Midpoint Riemann Sum.
+\begin{equation}
+    C_D = \frac{2}{C} \sum_{i=1}^{45} d\frac{[\frac{U_i}{U_\infty}(1-\frac{U_i}{U_\infty})] + [\frac{U_{i+1}}{U_\infty}(1-\frac{U_{i+1}}{U_\infty})]}{2}
+\end{equation}
