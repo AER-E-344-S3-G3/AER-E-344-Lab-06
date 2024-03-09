@@ -47,13 +47,13 @@ for a = 1:n_aoa % Iterate through files
         end 
     end
     % C_P Graphs
-    figure(a)
-    plot(position, C_p(a,:))
+    figure;
+    plot(position, C_p(a,:), "LineWidth", 2);
     fontname("Times New Roman");
     fontsize(12, "points");
     title_str = "C_p Distribution of Airfoil Wake at " + aoa(a) +"° AOA";
     title(title_str);
-    xlabel("Position");
+    xlabel("position");
     ylabel("C_p [ ]");
     grid on;
     saveas(gcf, figure_dir + title_str + ".svg");
@@ -66,14 +66,31 @@ for a = 1:n_aoa % Iterate through files
     end
     C_D(a) = C_D(a) * 2 / chord;
 end
+
+figure;
+hold on;
+for a = 1:n_aoa % Iterate through files
+    plot(position, C_p(a,:), "LineWidth", 1.5);
+end
+hold off;
+fontname("Times New Roman");
+fontsize(12, "points");
+title_str = "C_p Distribution of Airfoil Wake";
+title(title_str);
+xlabel("position");
+ylabel("C_p [ ]");
+legend("C_p at AOA " + aoa + "°", "Location", "southeast");
+grid on;
+saveas(gcf, figure_dir + title_str + ".svg");
+
 % C_D Graph
-figure(a + 1)
-plot(aoa, C_D)
-    fontname("Times New Roman");
-    fontsize(12, "points");
-    title_str = "C_D Distribution of Airfoil vs. AOA";
-    title(title_str);
-    xlabel("Angle of Attack [°]");
-    ylabel("C_D [ ]");
-    grid on;
-    saveas(gcf, figure_dir + title_str + ".svg");
+figure;
+plot(aoa, C_D, "LineWidth", 2);
+fontname("Times New Roman");
+fontsize(12, "points");
+title_str = "C_d Distribution of Airfoil vs. AOA";
+title(title_str);
+xlabel("angle of attack [°]");
+ylabel("C_d [ ]");
+grid on;
+saveas(gcf, figure_dir + title_str + ".svg");
