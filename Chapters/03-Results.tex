@@ -1,29 +1,16 @@
 \chapter{Results}
 \label{cp:results}
 
-\autoref{fig:C_p Distribution of Airfoil Wake.svg} shows the different Pressure distributions at different \acrshort{aoa}, then puts the different pressure distributions onto one graph so that we can see that as the \acrshort{aoa} 
+\autoref{fig:C_p Distribution of Airfoil Wake.svg} shows pressure distributions at various \acrshort{aoa}. \autoref{sec:additional_figures} has graphs for each of the pressure coefficient distributions.
 
 \begin{figure}[htpb]
     \centering
     \includesvg[width=0.75\linewidth]{Figures/C_p Distribution of Airfoil Wake.svg}
-    \caption[Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.]{Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.}
+    \caption[Plot of the Consolidated Pressure distributions.]{Plot of the pressure coefficient distributions overlaid.}
     \label{fig:C_p Distribution of Airfoil Wake.svg}
 \end{figure}
 
-% Describe and make a reference to the individual C_P graphs in the appendix (\autoref{sec:additional_figures})
-
-\newpage
-
-\autoref{fig:C_D Distribution of Airfoil vs. AOA.svg} shows the estimated Coefficient of Drag, \gls{C_d}, over the \qtyrange{0}{16}{\degree} \acrshort{aoa} we measured with the pressure rake.
-
-\begin{figure}[htpb]
-    \centering
-    \includesvg[width=0.75\linewidth]{Figures/C_D Distribution of Airfoil vs. AOA.svg}
-    \caption[Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.]{Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.}
-    \label{fig:C_D Distribution of Airfoil vs. AOA.svg}
-\end{figure}
-
-\autoref{fig: Velocity vs. Voltage.svg} shows the hot wire calibration curve we calculated based on our calibration data. The fourth order polynomial we calculated is shown in \autoref{eq:calibration_curve}
+\autoref{fig:C_D Distribution of Airfoil vs. AOA.svg} shows the estimated Coefficient of Drag, \gls{C_d}, over the \qtyrange{0}{16}{\degree} \acrshort{aoa} we measured with the pressure rake. \autoref{fig: Velocity vs. Voltage.svg} shows the hot wire calibration curve we calculated based on our calibration data. The fourth order polynomial we calculated is shown in \autoref{eq:calibration_curve}
 
 \begin{equation} \label{eq:calibration_curve}
     v = -4982.7570V^4 + 24021.8937V^3 + -43230.9413V^2 + 34446.6867V + -10248.1714
@@ -33,8 +20,30 @@
 
 \begin{figure}[htpb]
     \centering
-    \includesvg[width=0.75\linewidth]{Figures/Velocity vs. Voltage.svg}
-    \caption[Plot of the Velocity of the air vs the voltage of the  Hot Wire Anemometer]{Plot of the Velocity of the air vs the voltage of the  Hot Wire Anemometer}
-    \label{fig: Velocity vs. Voltage.svg}
-    \vspace*{4in}
+    \includesvg[width=0.75\linewidth]{Figures/Airfoil C_d vs. AOA.svg}
+    \caption[Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.]{Plot of the \gls{C_d} in relationship to the \acrshort{aoa}.}
+    \label{fig:C_D Distribution of Airfoil vs. AOA.svg}
 \end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includesvg[width=0.75\linewidth]{Figures/Velocity vs. Voltage.svg}
+    \caption[Plot of the Velocity of the air vs the voltage of the  Hot Wire Anemometer]{Plot of the air speed vs. the voltage reading from the hot wire anemometer.}
+    \label{fig: Velocity vs. Voltage.svg}
+\end{figure}
+
+\newpage
+
+Using \autoref{eq:Re} and the subsequent parameters, we find the Reynolds number of about \num{1.1e5} for the airfoil wake measurements.
+
+\begin{equation}\label{eq:Re}
+    Re = \frac{\rho V L}{\mu}
+\end{equation}
+
+\begin{enumerate}
+    \item[] $\rho = \qty{1.225}{\kilogram\per\meter^3}$
+    \item[] $\mu = \qty{18.18e-06}{\pascal\second}$
+    \item[] $L = \qty{0.101}{\meter}$
+    \item[] $V = \qty{16.1}{\meter\per\second}$
+    \item[] $Re = \num{1.09569e5}$
+\end{enumerate}
